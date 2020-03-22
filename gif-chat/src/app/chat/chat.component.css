@@ -1,12 +1,19 @@
 .messages{
     height: calc(100% - 80px);
-    overflow-y: auto;
     padding: 10px 10px 0;
     margin-bottom: 80px;
     box-sizing: border-box;
     font-weight: 400;
     font-size: 1.1rem;
     line-height: 1.2;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    overflow-y: -moz-scrollbars-none;
+    overflow-y: auto;
+}
+.messages::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 .messages li::after{
@@ -77,4 +84,90 @@
     font-size: 1.2rem;
 }
 
+.gif{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 30px;
+    visibility: hidden;
+    z-index: -1;
+}
 
+.gif.open{
+    visibility: visible;
+    z-index: 2;
+}
+
+.gif div{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    max-width: 640px;
+    background: #424242;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 30px 20px 0;
+    box-shadow: 0px 5px 20px 0px #0000007a;
+    overflow: hidden;
+    transition: width 0.2s linear, height 0.2s linear, opacity 0.3s ease-in;
+}
+
+.gif.open div{
+    opacity: 1;
+    width: 60%;
+    height: 100%;
+}
+
+.gif input{
+    width: 100%;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #9c2b55;
+    color: #fff;
+    height: 19px;
+}
+
+.gif input.selected{
+    border-color: #fff;
+}
+
+.gif ul{
+    margin: 15px 30px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: max-content;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    overflow-y: -moz-scrollbars-none;
+    overflow-y: auto;
+    height: calc(100% - 35px);
+}
+
+.gif li:last-child{
+    margin-bottom: 15px;
+}
+
+.gif ul::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.gif figure{
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gif figure img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

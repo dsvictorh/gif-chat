@@ -8,10 +8,22 @@
         </div>
     </li>
 </ul>
-<form class="controls" (ngSubmit)="sendMessage(messageTypes.text)">
-    <button type="button">GIF</button>
+<form class="controls" (ngSubmit)="sendMessage(message, messageTypes.text)">
+    <button type="button" (click)="onGifClick()">GIF</button>
     <input id="message" name="message" type="text" [(ngModel)]="message" />
     <button type="submit">
         <img src="assets/img/send.png" />
     </button> 
 </form>
+<section [ngClass]="{'open': gifOpen}" class="gif" (click)="toggleGif(false)">
+    <div (click)="$event.stopPropagation()">
+        <input id="search" name="search" type="text" [ngClass]="{selected: gifSelected}" [(ngModel)]="search" (ngModelChange)="searchGif(search)" />
+        <ul>
+            <li *ngFor="let gif of gifs">
+                <figure (click)="selectGif(gif.url)">
+                    <img [src]="gif.url" [alt]="gif.title" />
+                </figure>
+            </li>
+        </ul>
+    </div>
+</section>
