@@ -53,6 +53,7 @@ table {
 html{
 	font-size: 10px;
 	overflow: hidden;
+	scroll-behavior: smooth;
 }
 
 body{
@@ -64,6 +65,12 @@ body{
 
 main{
 	height: 100vh;
+}
+
+button{
+	border: 0;
+	background: none;
+	cursor: pointer;
 }
 
 figure{
@@ -79,4 +86,8 @@ a{
 	text-decoration: none;
 	border: 1px solid #cc3b75;
 	border-radius: 4px;
+}
+
+:focus{
+	outline: none;
 }

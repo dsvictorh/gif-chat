@@ -1,1 +1,17 @@
-<p>chat works!</p>
+<ul id="messages" class="messages">
+    <li *ngFor="let message of messages" [ngSwitch]="message.type">
+        <div [ngClass]="getMessageSide(message)">
+            <p *ngSwitchCase="messageTypes.text">{{message.text}}</p>
+            <figure *ngSwitchCase="messageTypes.image">
+                <img [src]="message.text" />
+            </figure>
+        </div>
+    </li>
+</ul>
+<form class="controls" (ngSubmit)="sendMessage(messageTypes.text)">
+    <button type="button">GIF</button>
+    <input id="message" name="message" type="text" [(ngModel)]="message" />
+    <button type="submit">
+        <img src="assets/img/send.png" />
+    </button> 
+</form>

@@ -1,0 +1,27 @@
+[
+    {
+        "user": "bairesdev",
+        "text": "Hello!",
+        "type": 1
+    },
+    {
+        "user": "victorh",
+        "text": "/assets/img/profile-pic.gif",
+        "type": 2
+    },
+    {
+        "user": "victorh",
+        "text": "Sup!",
+        "type": 1
+    },
+    {
+        "user": "victorh",
+        "text": ":D",
+        "type": 1
+    },
+    {
+        "user": "bairesdev",
+        "text": "You wanna work with us?",
+        "type": 1
+    }
+]
