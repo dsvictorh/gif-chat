@@ -42,6 +42,7 @@ export class ChatComponent implements OnInit {
 
     this.messageService.getMessages().subscribe((res) => {
       this.messages = res;
+      this.scrollToBottom();
     });
   }
 
@@ -57,14 +58,17 @@ export class ChatComponent implements OnInit {
         this.message = null;
       }
 
-      setTimeout(() => {
-        document.querySelector('.messages li:last-child').scrollIntoView(false);
-      }, 0);
+      this.scrollToBottom();
     }
   }
 
   toggleGif(toggle: boolean){
     this.gifOpen = toggle;
+
+    if(!this.gifOpen){
+      this.search = null;
+      this.gifs = [];
+    }
   }
 
   searchGif(search: string){
@@ -83,7 +87,7 @@ export class ChatComponent implements OnInit {
       this.searchSubscription = this.gifService.searchGifs(search).subscribe((res) => {
         this.searchSubscription = null;
         this.gifs = res.data.map((gif) => { 
-          return { url: gif.images.fixed_height.url, title: gif.title }
+          return { url: gif.images.fixed_height.url, title: gif.title, loaded: false }
          });
         console.log(this.gifs);
       });
@@ -97,13 +101,21 @@ export class ChatComponent implements OnInit {
       this.sendMessage(url, MessageTypes.image);
       this.toggleGif(false);
       this.gifSelected = false;
-      this.search = null;
-      this.gifs = [];
     }, 100);
   }
 
   onGifClick(){
     this.searchGif(null);
     this.toggleGif(true);
+  }
+
+  loadGif(gif: any){
+    //gif.loaded = true;
+  }
+
+  scrollToBottom(){
+    setTimeout(() => {
+      document.querySelector('.messages li:last-child').scrollIntoView(false);
+    }, 0);
   }
 }

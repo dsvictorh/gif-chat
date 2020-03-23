@@ -91,7 +91,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     box-sizing: border-box;
     padding: 30px;
@@ -120,7 +120,7 @@
 
 .gif.open div{
     opacity: 1;
-    width: 60%;
+    width: 100%;
     height: 100%;
 }
 
@@ -150,6 +150,10 @@
     height: calc(100% - 35px);
 }
 
+.gif li{
+    position: relative;
+}
+
 .gif li:last-child{
     margin-bottom: 15px;
 }
@@ -170,4 +174,29 @@
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.gif .loader{
+    background: #424242;
+}
+
+@media (max-width: 1024px){
+    .gif ul{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .controls input{
+        width: calc(100% - 90px);
+    }
+
+    .controls button{
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (orientation: portrait){
+    .gif{
+        padding-top: 45vh;
+    }
 }

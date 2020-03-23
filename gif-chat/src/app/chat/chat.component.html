@@ -20,8 +20,9 @@
         <input id="search" name="search" type="text" [ngClass]="{selected: gifSelected}" [(ngModel)]="search" (ngModelChange)="searchGif(search)" />
         <ul>
             <li *ngFor="let gif of gifs">
+                <i *ngIf="!gif.loaded" class="loader"></i>
                 <figure (click)="selectGif(gif.url)">
-                    <img [src]="gif.url" [alt]="gif.title" />
+                    <img [src]="gif.url" [alt]="gif.title" (load)="loadGif(gif)" />
                 </figure>
             </li>
         </ul>

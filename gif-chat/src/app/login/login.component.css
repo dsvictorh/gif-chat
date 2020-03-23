@@ -48,3 +48,19 @@ a{
 a:hover{
     border-color: #eb5d3f;
 }
+
+@media (max-width: 1024px){
+    h1{
+        font-size: 3rem;
+    }
+}
+
+@media (max-height: 480px){
+    form{
+        padding: 22px 35px;
+    }
+
+    figure{
+        margin: 10px 0;
+    }
+}
