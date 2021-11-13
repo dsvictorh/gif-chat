@@ -3,7 +3,6 @@ import { MessageService } from '../services/message.service';
 import { Message, MessageTypes } from '../models/message.model';
 import { GlobalService } from '../services/global.service';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import { Subscription } from 'rxjs';
 import { GifService } from '../services/gif.service';
 
@@ -115,7 +114,7 @@ export class ChatComponent implements OnInit {
 
   scrollToBottom(){
     setTimeout(() => {
-      document.querySelector('.messages li:last-child').scrollIntoView(false);
+      document.querySelector('.messages li:last-child')?.scrollIntoView(false);
     }, 0);
   }
 }
