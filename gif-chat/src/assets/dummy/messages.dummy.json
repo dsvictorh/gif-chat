@@ -1,26 +1,26 @@
 [
     {
-        "user": "bairesdev",
+        "user": "jsmith",
         "text": "Hello!",
         "type": 1
     },
     {
-        "user": "victorh",
+        "user": "jdoe",
         "text": "/assets/img/profile-pic.gif",
         "type": 2
     },
     {
-        "user": "victorh",
+        "user": "jdoe",
         "text": "Sup!",
         "type": 1
     },
     {
-        "user": "victorh",
+        "user": "jdoe",
         "text": ":D",
         "type": 1
     },
     {
-        "user": "bairesdev",
+        "user": "jsmith",
         "text": "You wanna work with us?",
         "type": 1
     }
